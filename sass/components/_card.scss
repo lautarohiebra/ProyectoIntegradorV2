@@ -1,16 +1,17 @@
 .card {
     outline: none;
+    border: 1px solid $color2;
+    margin-top: 15px;
     flex-grow: 1;
-    width: 220px;
+    width: 200px;
     max-width: 300px;
     height: 400px;
     overflow: hidden;
-    box-shadow: 0 1px 5px rgba(0,0,0, .2), 0 0 3px rbga(0,0,0, .4);
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.336);
     transition: all .2s;
+    border-radius: 15px 0 15px 0;
 
-    background-color: orange;
+    background-color: $color5;
 
     &:hover, 
     &:focus {
@@ -22,27 +23,6 @@
         transform-origin: bottom;
         box-shadow: 0 7px 8px rgba(0,0,0, .05), 0 3 3px rgba(0,0,0, .01);
     }
-
-    &:nth-child(5n + 1) {
-        background-image: linear-gradient(to top, #aaafad 0%, #60efff 30%);
-    }
-
-    &:nth-child(5n + 2) {
-        background-image: linear-gradient(to top, #696eff 0%, #f8acff 30%);
-    }
-
-    &:nth-child(5n + 3) {
-        background-image: linear-gradient(to top, #ff1b6b 0%, #45caff 30%);
-    }
-
-    &:nth-child(5n + 4) {
-        background-image: linear-gradient(to top, #ff930f 0%, #fff95b 30%);
-    }
-
-    &:nth-child(5n + 5) {
-        background-image: linear-gradient(to top, #ff0f7b 0%, #f89b29 30%);
-    }
-
 
     &__image-container {
         height: 200px;
@@ -58,6 +38,8 @@
         clip-path: polygon(0 0, 100% 0, 100% 190px, 0 200px)
     }
 
+    /* IMAGEN */
+
     &__image {
         width: 100%;
         height: 100%;
@@ -71,8 +53,30 @@
         transform-origin: center;
     }
 
+    /* TITULO */
+
+    &__heading{
+        background-color: $color5;
+        width: 100%;
+        color: $color1;
+        padding-top: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-bottom: 1px solid $color2;
+
+    }
+
     &__content {
-        padding: 1em;
+        padding: 0;
+    }
+
+/* PARRAFO CARDS */
+
+    & p{
+        background-color: $color1;
+        padding: 4px 5px;
+        font-size: 15px;
+        height: 160px;
     }
 
     @media (min-width: 1024px) {
@@ -93,15 +97,21 @@
         }
 
         & &__image-container {
-            width: 40%;
+            width: 100%;
             clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
         }
 
         &:hover &__image-container,
         &:focus &__image-container {
-            width: 40%;
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)
+            width: 120%;
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+            transition: all 1s;
+            transform: rotate(0);
         }
     }
 
+}
+
+.section-cards a{
+   text-decoration: none;
 }
