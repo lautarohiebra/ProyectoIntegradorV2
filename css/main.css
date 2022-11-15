@@ -690,21 +690,23 @@ body {
   overflow: hidden;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.336);
   transition: all 0.2s;
-  border-radius: 15px 0 15px 0;
-  background-color: #8075FF;
+  border-radius: 15px 15px 0 0;
+  background-color: #6320EE;
   /* IMAGEN */
   /* TITULO */
   /* PARRAFO CARDS */
+  /* Precio Cards */
 }
 .card:hover, .card:focus {
   transform: scale(1.03) skewX();
   transform-origin: bottom;
   box-shadow: 0 7px 15px rgba(255, 255, 255, 0.877);
   transition: all 0.2s;
+  cursor: auto;
 }
 .card__image-container {
   height: 200px;
-  background-color: blue;
+  background-color: #6320EE;
   overflow: hidden;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 200px, 0 180px);
   clip-path: polygon(0 0, 100% 0, 100% 200px, 0 180px);
@@ -749,19 +751,44 @@ body {
   font-size: 15px;
   height: 70%;
 }
-.card .card__description-precio {
+.card .contenedorPrecio {
+  display: flex;
+  justify-content: space-between;
   background-color: #f3f2f2;
-  font-size: 22px;
+  height: 30px;
+}
+.card .contenedorPrecio h3 {
+  color: #252627;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-weight: 300;
+}
+.card .contenedorPrecio .botonAgregar {
+  color: white;
+  background-color: rgb(114, 247, 5);
+  border: 1px solid white;
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.card .contenedorPrecio .botonAgregar:hover {
+  background-color: rgb(1, 209, 1);
+}
+.card .card__description-precio {
+  font-size: 19px;
   height: 30%;
-  text-align: end;
-  padding-right: 5px;
+  text-align: center;
   color: #6320EE;
-  font-weight: bold;
+  font-weight: bolder;
+  padding-left: 5px;
+}
+.card:hover .contenedorPrecio {
+  background-color: #8075FF;
+  transition: all 0.2s;
 }
 .card:hover .card__description-precio {
-  background-color: #8075FF;
-  color: #F2F4FF;
-  transition: all 0.2s;
+  color: #FFF9FB;
 }
 @media (min-width: 1024px) {
   .card {

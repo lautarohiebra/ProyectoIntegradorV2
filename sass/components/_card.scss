@@ -9,9 +9,9 @@
     overflow: hidden;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.336);
     transition: all .2s;
-    border-radius: 15px 0 15px 0;
+    border-radius: 15px 15px 0 0;
 
-    background-color: $color5;
+    background-color: $color4;
 
     &:hover, 
     &:focus {
@@ -23,11 +23,12 @@
         transform-origin: bottom;
         box-shadow: 0 7px 15px rgba(255, 255, 255, 0.877);
         transition: all .2s;
+        cursor: auto;
     }
 
     &__image-container {
         height: 200px;
-        background-color: blue;
+        background-color: $color4;
         overflow: hidden;
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 200px, 0 180px);
         clip-path: polygon(0 0, 100% 0, 100% 200px, 0 180px);
@@ -87,21 +88,53 @@
         font-size: 15px;
         height: 70%;
     }
+
+/* Precio Cards */
+
+    & .contenedorPrecio{
+        display: flex;
+        justify-content: space-between;
+        background-color: $color7;
+        height: 30px;
+
+        & h3{
+            color: $color3;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 300;
+        }
+
+        & .botonAgregar{
+            color:white;
+            background-color: rgb(114, 247, 5);
+            border: 1px solid white;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            margin-right: 15px;
+            cursor: pointer;
+
+            &:hover{
+                background-color: rgb(1, 209, 1);
+            }
+        }
+    }
     
     & .card__description-precio{
-        background-color: $color7;
-        font-size: 22px;
+        font-size: 19px;
         height: 30%;
-        text-align: end;
-        padding-right: 5px;
+        text-align: center;
         color: $color4;
-        font-weight: bold;
+        font-weight: bolder;
+        padding-left: 5px;  
     }
 
-    &:hover .card__description-precio{
+    &:hover .contenedorPrecio{
         background-color: $color5;
-        color: $color2;
         transition: all .2s;
+    }
+
+    &:hover .card__description-precio {
+        color: $color1;
     }
 
     @media (min-width: 1024px) {

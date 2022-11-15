@@ -1,6 +1,6 @@
 {{#if listado.length }}
     {{#each listado}}
-        <a href="#" class="card" onclick="agregarCarrito(event,{{id}},this)"> 
+        <a href="#" class="card"> 
             <article class="card__article">
                 <div class="card__image-container">
                     <img class="card__image" src="{{foto}}" alt="{{nombre}}" />
@@ -9,7 +9,10 @@
                     <h2 class="card__heading">{{nombre}}</h2>
                     <div class="card__description">
                     <p class="card__description-detalles">{{detalles}}</p>
-                    <p class="card__description-precio">${{precio}}</p>
+                    <div class="contenedorPrecio">
+                    <p class="card__description-precio">Precio: ${{precio}}</p>
+                    <h3>Agregar</h3><button class="botonAgregar"onclick="agregarCarrito(event,{{id}},this)">+</button>
+                    </div>
                     </div>
                 </div>
             </article>
