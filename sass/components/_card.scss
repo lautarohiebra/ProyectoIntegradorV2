@@ -21,7 +21,8 @@
         -moz-transform-origin: bottom;
         -webkit-transform-origin: bottom;
         transform-origin: bottom;
-        box-shadow: 0 7px 8px rgba(0,0,0, .05), 0 3 3px rgba(0,0,0, .01);
+        box-shadow: 0 7px 15px rgba(255, 255, 255, 0.877);
+        transition: all .2s;
     }
 
     &__image-container {
@@ -35,7 +36,8 @@
     &:hover &__image-container,
     &:focus &__image-container {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 190px, 0 200px);
-        clip-path: polygon(0 0, 100% 0, 100% 190px, 0 200px)
+        clip-path: polygon(0 0, 100% 0, 100% 190px, 0 200px);
+        transition:all .2s;
     }
 
     /* IMAGEN */
@@ -72,11 +74,34 @@
 
 /* PARRAFO CARDS */
 
-    & p{
+    & .card__description{
+        display: flex;
+        flex-direction: column;
+        height: 180px;
+    }
+
+    & .card__description-detalles{
         background-color: $color1;
+        color: $color3;
         padding: 4px 5px;
         font-size: 15px;
-        height: 160px;
+        height: 70%;
+    }
+    
+    & .card__description-precio{
+        background-color: $color7;
+        font-size: 22px;
+        height: 30%;
+        text-align: end;
+        padding-right: 5px;
+        color: $color4;
+        font-weight: bold;
+    }
+
+    &:hover .card__description-precio{
+        background-color: $color5;
+        color: $color2;
+        transition: all .2s;
     }
 
     @media (min-width: 1024px) {

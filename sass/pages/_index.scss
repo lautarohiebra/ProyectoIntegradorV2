@@ -1,7 +1,24 @@
+
 .section-cards {
-    background-color: #f1f2f3;
     padding: 1em;
+
+    &__header h1{
+        background-color: $color5;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 15px;
+        margin-bottom: 5px;
+    }
+    &__header p{
+        background-color: $color3;
+        color: $color2;
+        width: fit-content;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
 }
+
+
 
 .cards-container {
     display: flex;

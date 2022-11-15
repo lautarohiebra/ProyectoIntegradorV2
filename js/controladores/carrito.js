@@ -1,5 +1,9 @@
 class CarritoController extends CarritoModel {
 
+/*     totalCarrito = document.getElementsById("totalCarrito")
+    cantidadProductos = document.getElementsById("cantidadProductosCarrito") */
+    
+    /* TODO: continuar desde aqui con el total de productos y precio */
     constructor() {
         super()
         
@@ -12,7 +16,6 @@ class CarritoController extends CarritoModel {
             console.error('Algo ocurrió con la lectura del localStorage', error)
             this.carrito = []
             localStorage.setItem('carrito', this.carrito)
-            
         }
 
     }
@@ -70,7 +73,10 @@ class CarritoController extends CarritoModel {
         }
 
     }
-
+    agregarUno(producto){
+        const productoDeCarrito = this.obtenerProductoDeCarrito(producto)
+        productoDeCarrito.cantidad++
+    }
 }
 
 const carritoController = new CarritoController()
