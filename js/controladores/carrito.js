@@ -1,9 +1,6 @@
 class CarritoController extends CarritoModel {
-
-/*     totalCarrito = document.getElementsById("totalCarrito")
-    cantidadProductos = document.getElementsById("cantidadProductosCarrito") */
+    totales = document.getElementsByClassName('totales')
     
-    /* TODO: continuar desde aqui con el total de productos y precio */
     constructor() {
         super()
         
@@ -33,10 +30,13 @@ class CarritoController extends CarritoModel {
 
         if(!this.elProductoEstaEnElCarrito(producto)) {
             producto.cantidad = 1
+            producto.precioTotal;
+            producto.precioTotal = producto.precio * producto.cantidad
             this.carrito.push(producto)
         } else {
             const productoDeCarrito = this.obtenerProductoDeCarrito(producto)
             productoDeCarrito.cantidad++
+            producto.precioTotal = producto.precio * producto.cantidad
         }
 
         localStorage.setItem('carrito', JSON.stringify(this.carrito))
@@ -51,6 +51,7 @@ class CarritoController extends CarritoModel {
             localStorage.setItem('carrito', JSON.stringify(this.carrito))
 
             await renderTablaCarrito(this.carrito)
+            this.renderValores()
         } catch (error) {
             console.log(error)
         }
@@ -73,10 +74,83 @@ class CarritoController extends CarritoModel {
         }
 
     }
-    agregarUno(producto){
-        const productoDeCarrito = this.obtenerProductoDeCarrito(producto)
-        productoDeCarrito.cantidad++
+
+    cerrarCarrito() {
+        const carrito=document.querySelectorAll('.section-carrito--visible')[0]
+        carrito.classList.remove('section-carrito--visible')
+    }
+
+    async sumarUno(id) {
+        try {
+            const indice=this.carrito.findIndex(producto => producto.id == id)
+            this.carrito[indice].cantidad++
+            this.carrito[indice].precioTotal = this.carrito[indice].precio * this.carrito[indice].cantidad
+            localStorage.setItem("carrito", JSON.stringify(this.carrito))
+            await renderTablaCarrito(this.carrito)
+            this.renderValores()
+
+        } catch (error) {
+            console.log(`Error en sumar , ${error}`);
+        }
+    }
+
+    async quitarUno(id) {
+        try {
+            const indice=this.carrito.findIndex(producto => producto.id == id)
+            this.carrito[indice].cantidad--
+            this.carrito[indice].precioTotal = this.carrito[indice].precio * this.carrito[indice].cantidad
+            localStorage.setItem("carrito", JSON.stringify(this.carrito))
+            await renderTablaCarrito(this.carrito)
+            this.renderValores()
+            if (this.carrito[indice].cantidad == 0) {
+                this.borrarProductoCarrito(id)
+                this.renderValores()
+            }
+
+        } catch (error) {
+            console.log(`Error en restar , ${error}`);
+        }
+    }
+    
+    totalProductos() {
+        const items = this.carrito.map(productos=>{
+        return productos.cantidad
+    })
+
+    const totalItems = items.reduce(
+        (previo, actual) => previo + actual,
+        0
+    );
+    return totalItems
+    }  
+
+
+    totalPrecio() {
+        const items = this.carrito.map(productos=>{
+        return productos.precioTotal
+    })
+
+    const totalPrecio = items.reduce(
+        (previo, actual) => previo + actual,
+        0
+    );
+
+    return totalPrecio
+    } 
+
+    renderValores() {
+        this.totales[0].innerHTML = `Total Items: ${this.totalProductos()}`
+        this.totales[1].innerHTML = `Total a pagar: $${this.totalPrecio()}`
+    }
+
+    cargaValorInicial() {
+        setTimeout(() => {
+            this.renderValores()
+        }, 100);
     }
 }
+
+
+
 
 const carritoController = new CarritoController()

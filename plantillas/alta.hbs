@@ -1,6 +1,6 @@
 {{#if productos.length}}
 <table>
-    <tr>
+    <tr class="headers">
             <th>Nombre</th>
             <th>Precio</th>
             <th>Stock</th>
@@ -11,13 +11,13 @@
             <th>Envío</th>
     </tr>
     {{#each productos}}
-    <tr>
+    <tr class="data">
         <td>{{nombre}}</td>
         <td>{{precio}}</td>
         <td>{{stock}}</td>
         <td>{{marca}}</td>
         <td>{{categoria}}</td>
-        <td>{{detalles}}</td>
+        <td class="detalles">{{detalles}}</td>
         <td>
             <img src="{{foto}}" alt="{{nombre}}" style="display:block; margin: 0 auto;" width="50">
         </td>

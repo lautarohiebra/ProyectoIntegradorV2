@@ -809,6 +809,9 @@ body {
     -webkit-clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
             clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
   }
+  .card .card__card-content {
+    width: 60%;
+  }
   .card:hover .card__image-container, .card:focus .card__image-container {
     width: 120%;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
@@ -824,10 +827,14 @@ body {
 
 .container-alta {
   padding: 10px;
-  margin: 15px 30px;
+  margin: 15px 15px;
   background-color: #F2F4FF;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.308);
   border-radius: 15px;
+  font-weight: 700;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .container-alta h1, .container-alta h2 {
   color: #F2F4FF;
@@ -851,16 +858,17 @@ body {
   display: block;
   margin-top: 20px;
   width: 80px;
-  background-color: blue;
+  background-color: #8075FF;
   color: white;
   cursor: pointer;
   margin-bottom: 10px;
+  height: 20px;
 }
 .container-alta button:hover {
-  background-color: blueviolet;
+  background-color: #6320EE;
 }
 .container-alta button:disabled {
-  background-color: red;
+  background-color: rgb(118, 129, 163);
 }
 .container-alta input[type=checkbox] {
   display: inline;
@@ -869,9 +877,9 @@ body {
   margin-top: 10px;
 }
 .container-alta form div {
-  border: 1px solid crimson;
-  background-color: gold;
-  color: darkred;
+  border: 2px solid #FFF9FB;
+  background-color: #8075FF;
+  color: #FFF9FB;
   margin: 2px 0 10px 0;
   border-radius: 5px;
   display: none;
@@ -886,23 +894,59 @@ body {
 .container-alta #listado-productos {
   width: 100%;
 }
+.container-alta #listado-productos .data {
+  height: 50px;
+  max-height: 50px;
+}
+.container-alta #listado-productos .headers {
+  background-color: #8075FF;
+  color: #FFF9FB;
+  height: 40px;
+}
+.container-alta #listado-productos .detalles {
+  max-width: 400px;
+  font-weight: 400;
+}
 
 .section-carrito {
   display: none;
   position: fixed;
   background-color: #f1f2f3;
   z-index: 1;
-  top: 150px;
-  left: 150px;
-  right: 150px;
-  bottom: 150px;
+  left: 10%;
+  right: 10%;
   box-shadow: 0.3em 0.3em 10em 0.3em rgb(0, 0, 0);
   height: 500px;
+  border: #252627 solid 1px;
 }
 .section-carrito--visible {
   display: block;
   padding: 10px;
-  width: 75%;
+  width: 80%;
+}
+
+#botonCerrarCarrito {
+  font-size: 20px;
+  width: 25px;
+  height: 25px;
+  display: block;
+  position: relative;
+  left: 93%;
+  background-color: #252627;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  border-top: 2px solid #6320EE;
+  border-left: 2px solid #6320EE;
+  border-bottom: 2px solid #8075FF;
+  border-right: 2px solid #8075FF;
+  margin-bottom: 5px;
+}
+#botonCerrarCarrito:hover {
+  background-color: #FFF9FB;
+  color: #252627;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .contenedor-tabla-carrito {
@@ -934,7 +978,9 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 800;
 }
 
 .tr-principales {

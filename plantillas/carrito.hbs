@@ -1,4 +1,5 @@
 {{#if carrito.length}}
+<button id="botonCerrarCarrito" onclick="carritoController.cerrarCarrito()">X</button>
 <div class="contenedor-tabla-carrito">
   <table class="carrito__table">
     <tr class="tr-principales">
@@ -14,20 +15,20 @@
     {{#each carrito}}
       <tr>
         <td>{{nombre}}</td>
-        <td>${{precio}}</td>
+        <td>${{precioTotal}}</td>
         <td>{{marca}}</td>
         <td>
           <img
             style="display:block; margin: 0 auto;"
-            src="{{imagen}}"
+            src="{{foto}}"
             width="50"
             alt="{{nombre}}"
           />
         </td>
         <td>
-            <button id="quitarUno">-</button>
+            <button id="quitarUno" onclick="carritoController.quitarUno({{id}})">-</button>
             {{cantidad}}
-            <button id="agregarUno">+</button>
+            <button id="agregarUno" onclick="carritoController.sumarUno({{id}})">+</button>
         </td>
 
         {{#if envio}}
@@ -39,15 +40,15 @@
         <td>
           <button
             onclick="carritoController.borrarProductoCarrito({{id}})"
-          >borrar</button>
+          >Borrar</button>
         </td>
       </tr>
     {{/each}}
   </table>
 </div>
 <div class="contenedor-total">
-    <h3 id="cantidadProductosCarrito">Productos:</h3>
-    <h3 id="totalCarrito">Total a pagar: $</h3>
+    <h3 class="totales">Total items:</h3>
+    <h3 class="totales">Total a pagar: $</h3>
   </div>
       <div class="contenedorBotonCarrito">
     <button
