@@ -18,16 +18,16 @@
           <h2 class="section-form__h2">Realiza una consulta:</h2>
           <form class="section-form__form" action="#">
             <p class="label"><label for="nombre"> Nombre: 
-                <input required type="text" id="nombre"></label>
+                <input class="campos-contacto" required type="text" id="nombre"></label>
             </p>
             <p class="label"><label for="apellido"> Apellido: 
-                <input required type="text" id="apellido"></label>
+                <input class="campos-contacto" required type="text" id="apellido"></label>
             </p>
             <p class="label"><label for="email">Email: 
-                <input required placeholder="ejemplo@gmail.com" type="email" id="email"></label>
+                <input class="campos-contacto" required placeholder="ejemplo@gmail.com" type="email" id="email"></label>
             </p>
             <p class="label"><label for="motivo" class="motivo"> Seleccione el motivo de su consulta
-                <select required id="motivo">
+                <select class="campos-contacto" required id="motivo">
                     <option id="seleccion" value="">Seleccione un tema</option>
                     <option id="consulta-producto" value="consulta-producto">Productos (Stock, Precios, Presupuestos, etc.)</option>
                     <option id="consulta-medio-de-pago" value="consulta-producto">Medios de pago</option>
@@ -39,8 +39,8 @@
               </label>
             </p>
             <p class="label textarea"><label for="info-consulta">¿En que podemos ayudarte?
-                <textarea  id="info-consulta"></textarea></label></p>
-            <button type="submit">Enviar</button>
+                <textarea class="campos-contacto"  id="info-consulta" required></textarea></label></p>
+            <button id="submit-consulta" type="submit" >Enviar</button>
           </form>
         </section>
       </main>

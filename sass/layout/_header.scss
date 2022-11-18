@@ -1,7 +1,6 @@
 /***********************************
              HEADER
 ***********************************/
-
 .main-header {
     display: flex;
     flex-direction: column-reverse;
@@ -105,18 +104,37 @@
     animation-name: "animacion-header";
     animation-duration: 5s;
     animation-iteration-count: infinite;
+    
+    @media (max-width:425px){
+        height: 200px;
+        align-items: flex-end;
+        padding-bottom: 15px;
+    }
 
     &__logo-container{
         height: 100%;
         width: fit-content;
         margin-left: 5px;
         content: url("../../img/logos/logo-claro-removebg-preview.png");
+
+        @media (max-width:425px) {
+            position: absolute;
+            left: 30%;
+            width: 200px;
+            height: 200px;
+            background-color: $color2;
+            z-index: 0;
+        }
     }
 
     &__form-container {
         display: flex;
         flex-basis: 100%;
         justify-content: center;
+        
+        @media (max-width:425px) {
+            z-index: 2;
+        }
     }
 
     &__form-label {
@@ -161,6 +179,11 @@
         content: url(../../img/svgs/cart.svg);
         width: 10%;
         margin-right: 10%;
+        z-index: 5;
+
+        &:hover{
+            cursor: pointer;
+        }
     }
 
     @media (max-width: 768px){
@@ -289,6 +312,4 @@
         }
     }
  }
-
-
 

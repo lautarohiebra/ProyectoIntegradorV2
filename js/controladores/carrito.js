@@ -67,7 +67,7 @@ class CarritoController extends CarritoModel {
             this.carrito = []
             localStorage.setItem('carrito', JSON.stringify(this.carrito))
 
-            elemSectionCarrito.innerHTML = '<h2>Enviando carrito <b>OK!</b></h2>'
+            elemSectionCarrito.innerHTML = '<h2>¡Carrito enviado!</h2>'
 
         } catch (error) {
             console.error(error)

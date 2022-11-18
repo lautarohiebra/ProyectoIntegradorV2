@@ -101,12 +101,16 @@
             color: $color3;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-weight: 300;
+            font-size: 16px;
+            text-align: center;
+            justify-content: center;
+            margin-top: 5px;
         }
 
         & .botonAgregar{
-            color:white;
-            background-color: rgb(114, 247, 5);
-            border: 1px solid white;
+            color:$color5;
+            background-color: $color1;
+            border: 1px solid $color4;
             width: 25px;
             height: 25px;
             border-radius: 5px;
@@ -114,7 +118,7 @@
             cursor: pointer;
 
             &:hover{
-                background-color: rgb(1, 209, 1);
+                background-color: $color4
             }
         }
     }
@@ -158,9 +162,8 @@
             width: 100%;
             clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
         }
-
-        & &__card-content {
-            width: 60%;
+        &__content{
+            width: 100%
         }
 
         &:hover &__image-container,

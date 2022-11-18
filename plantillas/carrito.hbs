@@ -25,10 +25,12 @@
             alt="{{nombre}}"
           />
         </td>
-        <td>
-            <button id="quitarUno" onclick="carritoController.quitarUno({{id}})">-</button>
+        <td class="cantidad">
             {{cantidad}}
+            <div class="contenedorBotonesAgregarQuitar">
+            <button id="quitarUno" onclick="carritoController.quitarUno({{id}})">-</button>
             <button id="agregarUno" onclick="carritoController.sumarUno({{id}})">+</button>
+            </div>
         </td>
 
         {{#if envio}}
@@ -38,9 +40,7 @@
         {{/if}}
 
         <td>
-          <button
-            onclick="carritoController.borrarProductoCarrito({{id}})"
-          >Borrar</button>
+          <button class="botonBorrarProducto" onclick="carritoController.borrarProductoCarrito({{id}})">Borrar</button>
         </td>
       </tr>
     {{/each}}
@@ -51,10 +51,7 @@
     <h3 class="totales">Total a pagar: $</h3>
   </div>
       <div class="contenedorBotonCarrito">
-    <button
-      class="btn__enviarCarrito"
-      onclick="carritoController.enviarCarrito()"
-    >Enviar carrito</button>
+    <button class="btn__enviarCarrito" onclick="carritoController.enviarCarrito()">Enviar carrito</button>
   </div>
   
 {{else}}
